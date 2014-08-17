@@ -13,12 +13,11 @@
   <tbody>
     <% @l.each do |light| %>
       <tr>
-        <td>
-        <%= light[0][:name] %> </td>
+        <td><%= light[0][:name] %> </td>
         <td><%= light[0][:key] %> </td>
         <td><%= light[0][:state] %> </td>
         <td>
-        	<form name="input" action="http://localhost:3000/lights/flip_light" method="get">
+        	<form name="input" action="http://localhost:3000/lights/flip_light" method="post">
         	<input type="hidden" name="key" value="<%= light[0][:key] %>">
         	<input type="hidden" name="state" value="<%= light[0][:state] %>">
 			<input type="submit" value="Flip">

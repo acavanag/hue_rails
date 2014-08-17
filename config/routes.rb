@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'lights/flip_light' => 'lights#flip_light'
+  post 'lights/flip_light' => 'lights#flip_light'
 
   resources :lights, :only => [:index]
 

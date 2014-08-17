@@ -1,0 +1,49 @@
+clear-day:
+  bri: 255
+  hue: 10000
+  sat: 255
+
+clear-night:
+  bri: 150
+  hue: 55000
+  sat: 225
+  
+rain:
+  bri: 175
+  hue: 50000
+  sat: 225
+  
+snow:
+  bri: 255
+  hue: 0
+  sat: 0
+  
+sleet:
+  bri: 125
+  hue: 47000
+  sat: 30
+
+wind:
+  bri: 175
+  hue: 30000
+  sat: 175
+
+fog:
+  bri: 50
+  hue: 0
+  sat: 30
+
+cloudy:
+  bri: 200
+  hue: 46920
+  sat: 75
+
+partly-cloudy-day:
+  bri: 255
+  hue: 15000
+  sat: 200
+
+partly-cloudy-night: 
+  bri: 150
+  hue: 60000
+  sat: 255

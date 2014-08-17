@@ -1,7 +1,9 @@
 class LightsController < ApplicationController
   before_action :set_light, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
-	require '/Users/andrewcavanagh/Development/RUBY/hue/hue/lib/lp_hue.rb'
+  require './lib/lp_hue.rb'
+  require './lib/lp_weather.rb'
 
   # GET /lights
   # GET /lights.json
@@ -11,25 +13,19 @@ class LightsController < ApplicationController
     @l = hue.discover_lights
   end
 
-  def flip_light
-  
+  def flip_light  
   	light_key = params['key']
-  	state = params['state']
+  	old_state = params['state']
   	
-  	light_state = false
-  	if state == "true"
-  		light_state = false	
-  	else 
-  		light_state = true
-  	end
+  	current_weather = LPWeather.new
+  	color_hash = current_weather.weather
   
 	hue = LPHue.new
-	hue.flip_light(light_key, light_state)
+	hue.flip_light_with_colors(light_key, old_state, color_hash)
 
 	index
 
-  	render 'index'
-  	 
+  	render 'index'  	 
   end
 
   # GET /lights/1
