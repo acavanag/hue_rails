@@ -37,8 +37,8 @@ class PresetsController < ApplicationController
 	hue.flip_light_with_colors(light_key, false, color_hash)
 	
 	index
-
-  	render 'index'  	 
+	
+	redirect_to :controller=>'presets',:action=>'index'  	 
   end
 
   # GET /presets/1/edit

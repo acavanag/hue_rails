@@ -25,7 +25,7 @@ class LightsController < ApplicationController
 
 	index
 
-  	render 'index'  	 
+  	redirect_to :controller=>'presets',:action=>'index'   	 
   end
 
   # GET /lights/1
