@@ -27,24 +27,18 @@ class PresetsController < ApplicationController
   end
   
   def flip_light  
-  
-  	
-  	
   	light_key = params['key']
   	old_state = params['state']
   	
   	preset = Preset.find(params[:id])
   	color_hash = {'bri' => preset.brightness.to_i, 'hue' => preset.hue.to_i, 'sat' => preset.saturtion.to_i}
 
-
 	hue = LPHue.new
 	hue.flip_light_with_colors(light_key, false, color_hash)
 	
-	render :json => color_hash
-	
-	#index
+	index
 
-  	#render 'index'  	 
+  	render 'index'  	 
   end
 
   # GET /presets/1/edit
