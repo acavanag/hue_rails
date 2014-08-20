@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Brightness:</strong>
+  <%= @preset.brightness %>
+</p>
+
+<p>
+  <strong>Saturtion:</strong>
+  <%= @preset.saturtion %>
+</p>
+
+<p>
+  <strong>Hue:</strong>
+  <%= @preset.hue %>
+</p>
+
+<%= link_to 'Edit', edit_preset_path(@preset) %> |
+<%= link_to 'Back', presets_path %>
+
+
+<% @lights.each do |light| %>
+
+<form name="input" action="http://localhost:3000/presets/flip_light" method="post">
+<input type="hidden" name="key" value="<%= light[0][:key] %>">
+<input type="hidden" name="id" value="<%= @preset.id %>">
+<input type="hidden" name="state" value="<%= light[0][:state] %>">
+<input type="submit" value="<%= "Flip #{light[0][:name]}" %>">
+</form>
+
+<% end %>

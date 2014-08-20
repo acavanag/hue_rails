@@ -1,0 +1,29 @@
+<%= form_for(@preset) do |f| %>
+  <% if @preset.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@preset.errors.count, "error") %> prohibited this preset from being saved:</h2>
+
+      <ul>
+      <% @preset.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :brightness %><br>
+    <%= f.text_field :brightness %>
+  </div>
+  <div class="field">
+    <%= f.label :saturtion %><br>
+    <%= f.text_field :saturtion %>
+  </div>
+  <div class="field">
+    <%= f.label :hue %><br>
+    <%= f.text_field :hue %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

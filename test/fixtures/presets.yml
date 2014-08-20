@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  brightness: MyString
+  saturtion: MyString
+  hue: MyString
+
+two:
+  brightness: MyString
+  saturtion: MyString
+  hue: MyString
