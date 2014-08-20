@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :presets
+
   post 'lights/flip_light' => 'lights#flip_light'
+  post 'presets/flip_light' => 'presets#flip_light'
 
   resources :lights, :only => [:index]
 

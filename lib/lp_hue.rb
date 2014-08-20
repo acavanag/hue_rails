@@ -23,7 +23,14 @@ class LPHue
 	end
 
 	def flip_light_with_colors(light_key, light_state, color_hash)
-		RestClient.put "http://#{bridge_ip}/api/newdeveloper/lights/#{light_key}/state", {:on => state(light_state), :bri => color_hash['bri'], :sat => color_hash['sat'], :hue => color_hash['hue']}.to_json
+	
+		puts "key: #{light_key}"
+		puts "state: #{light_state}"
+		puts "THIS IS COLOR HASH color: #{color_hash}"
+	
+		response = RestClient.put "http://#{bridge_ip}/api/newdeveloper/lights/#{light_key}/state", {:on => state(light_state), :bri => color_hash['bri'], :sat => color_hash['sat'], :hue => color_hash['hue']}.to_json
+		
+		puts response
 	end
 
 private
